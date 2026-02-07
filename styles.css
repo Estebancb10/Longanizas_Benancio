@@ -15,7 +15,7 @@
 
 *{ box-sizing: border-box; }
 
-html { scroll-behavior: smooth;}
+html { scroll-behavior: smooth; }
 
 body{
   margin: 0;
@@ -50,6 +50,7 @@ a{ color: inherit; text-decoration: none; }
 
   position: sticky;
   top: 0;
+  z-index: 20;
 
 
 
@@ -83,6 +84,7 @@ a{ color: inherit; text-decoration: none; }
   border-radius: 14px;
   background: rgba(255,77,77,.18);
   border: 1px solid rgba(255,77,77,.25);
+  animation: logoTravieso 2s ease-in-out infinite;
 }
 
 .brand-text h1{
@@ -150,6 +152,12 @@ a{ color: inherit; text-decoration: none; }
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.06);
+
+  animation-name: peligroso;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .badge-dot{
@@ -157,6 +165,7 @@ a{ color: inherit; text-decoration: none; }
   height: 10px;
   border-radius: 50%;
   background: var(--accent2);
+  animation: puntoTravieso 2s ease-in-out infinite;
 }
 
 .hero-right{
@@ -175,6 +184,7 @@ a{ color: inherit; text-decoration: none; }
   padding: 18px;
   position: relative;
   overflow: hidden;
+  animation: tarjetaTraviesa 3s cubic-bezier(.2, .9, .2, 1) 1;
 }
 
 .hero-card-price{
@@ -202,6 +212,7 @@ a{ color: inherit; text-decoration: none; }
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: rgba(255,255,255,.03);
+  overflow: hidden;
 }
 
 .marquee-track{
@@ -209,6 +220,8 @@ a{ color: inherit; text-decoration: none; }
   gap: 34px;
   padding: 12px 0;
   color: var(--muted);
+  white-space: nowrap;
+  animation:  marqueeMove 20s linear infinite;
 }
 
 /* =========================
@@ -324,6 +337,34 @@ input, textarea{
   padding: 20px 18px;
   text-align: center;
   color: var(--muted);
+}
+
+
+@keyframes logoTravieso {
+  from { transform:  rotate(-5deg) scale(1); }
+  to { transform: rotate(5deg) scale(1.05); }
+}
+
+@keyframes peligroso {
+  0% {box-shadow: 0 0 0 rgba(255, 200, 120, 0);}
+  50% {box-shadow: 0 0 22px rgba(255, 200, 120, .20);}
+  100% {box-shadow: 0 0 0 rgba(255, 200, 120, 0);}
+}
+
+@keyframes puntoTravieso {
+  0% {transform: scale(1); opacity: .8;}
+  50% {transform: scale(1.25); opacity: 1;}
+  100% {transform: scale(1); opacity: .8;}
+}
+
+@keyframes tarjetaTraviesa {
+  0% {transform: translateY(14px); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes marqueeMove {
+  from {transform: translateX(0);}
+  to {transform: translateX(-50%);}
 }
 
 /* =========================
